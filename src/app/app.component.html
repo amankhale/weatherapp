@@ -1,0 +1,71 @@
+<div class="weather-app">
+  <div class="navbar">
+    <header>
+      <h2>Weathery</h2>
+    </header>
+    <div class="input-container">
+      <input [(ngModel)]= "city" type="text" name="city" placeholder="Enter City Name" (keyup.enter)="requestCityData()">
+      <div class="search-area">
+        <button matRipple (click) = "requestCityData()" id="search-btn">Search</button>
+        <button matRipple (click) = "requestLocationData()" id="gps-btn" matTooltip="Use current Location">
+          <img src="../assets/img/gps.svg" alt="">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="weather-body">
+    <div class="content">
+      <div class="icon">
+        <img id="weather-icon" src="../assets/img/icons/02d.svg" alt="weather info">
+      </div>
+      <div class="details">
+        <div class="temperature">{{weatherData.temp}} °C</div>
+        <div class="summary">{{weatherData.summary}}</div>
+        <div class="city-name">{{weatherData.location}}, {{weatherData.country}}</div>
+        <small>Humidity</small>
+        <div class="humidity">{{weatherData.humidity}}%</div>
+        <small>Wind Speed</small>
+        <div class="wind">{{weatherData.wind}} m/s</div>
+      </div>
+    </div>
+    <div class="nearby-cities">
+      <small>Nearby-Cities</small>
+      <div class="city">
+        <div class="icon1">
+          <img id="weather-icon" src="../assets/img/icons/03d.svg" alt="weather info">
+        </div>
+        <div class="details">
+          <div class="temperature">{{nearbyCityData[0].temp}} °C</div>
+          <small>{{nearbyCityData[0].summary}}</small>
+          <div class="city-name">{{nearbyCityData[0].name}}, {{nearbyCityData[0].country}}</div>
+        </div>
+      </div>
+      <div class="city">
+        <div class="icon1">
+          <img id="weather-icon" src="../assets/img/icons/03d.svg" alt="weather info">
+        </div>
+        <div class="details">
+          <div class="temperature">{{nearbyCityData[1].temp}}°C</div>
+          <small>{{nearbyCityData[1].summary}}</small>
+          <div class="city-name">{{nearbyCityData[1].name}}, {{nearbyCityData[1].country}}</div>
+        </div>
+      </div>
+      <div class="city">
+        <div class="icon1">
+          <img id="weather-icon" src="../assets/img/icons/03d.svg" alt="weather info">
+        </div>
+        <div class="details">
+          <div class="temperature">{{nearbyCityData[2].temp}}°C</div>
+          <small>{{nearbyCityData[2].summary}}</small>
+          <div class="city-name">{{nearbyCityData[2].name}}, {{nearbyCityData[2].country}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="reference">Powered By 
+    <a href="https://www.openweathermap.org" target="_blank">openweathermap</a>
+    and 
+    <a href="https://www.freepik.com/" target="_blank">Freepik</a>
+  </p>
+</div>
+
