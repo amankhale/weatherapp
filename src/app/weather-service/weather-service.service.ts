@@ -18,14 +18,14 @@ export class WeatherService {
     );
   }
   getLocation(lat, lon): Observable<any>{
-    const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=97ed217e5f30e185abc346a3bd94496e`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=97ed217e5f30e185abc346a3bd94496e`;
     return this.http.get<any>(url)
     .pipe(
       catchError(this.errorHandler)
     );
   }
   getNearbyLocation(lat, lon): Observable<any>{
-    const url = `http://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lon}&units=metric&appid=97ed217e5f30e185abc346a3bd94496e`;
+    const url = `https://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lon}&units=metric&appid=97ed217e5f30e185abc346a3bd94496e`;
     return this.http.get<any>(url)
     .pipe(
       catchError(this.errorHandler)
